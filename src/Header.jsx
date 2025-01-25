@@ -27,9 +27,24 @@ export default function Header() {
                 <ToggleButtonGroup
                     value={colorScheme}
                     exclusive
-                    color="secondary"
                     onChange={(e, newValue) => {setColorScheme(newValue) }}
-                    //sx={{color: 'primary.contrastText'}}
+                    sx={{
+                        "& .MuiToggleButtonGroup-grouped": {
+                            color: "#f2f0efff",
+                            borderColor: "#f2f0ef80",
+                            "&.Mui-selected": {
+                                color: "secondary.main",
+                                "&:hover": {
+                                    color: "secondary.main",
+                                },
+                            },
+                            "&:hover": {
+                                color: "#f2f0ef",
+                                backgroundColor: "#f2f0ef20",
+                            }
+                        },
+
+                    }}
                 >
                     <ToggleButton value="light">
                         <LightMode />

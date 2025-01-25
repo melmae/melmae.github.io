@@ -2,6 +2,7 @@ import { Avatar, Box, Grid2, IconButton, Stack, Typography } from "@mui/material
 
 import profilePic from "../assets/profile-pic.jpg";
 import { GitHub, LinkedIn, School, Work } from "@mui/icons-material";
+import { calculateExperience } from "../utils";
 
 export default function About() {
     return (
@@ -34,18 +35,18 @@ export default function About() {
             </Grid2>
             <Stack spacing={3} sx={{width: '100%', ml: '50px'}}>
                 <Typography>
-                    I've been working as a Software Engineer for 2+ years, but it was a while before that when I started playing around with HTML and CSS.
-                    Now, most of my experience is with React and C# (.NET), but in the past I also used Java, React Native, and C.
+                    {`I've been working as a Software Engineer for ${calculateExperience()} years, but it was a while before that when I started playing around with HTML and CSS.
+                    Now, most of my experience is with React and C# (.NET), but in the past I also used Java, React Native, and C.`}
                 </Typography>
                 <Typography>
-                    I'm passionate about UX (User Experience) and I'm always trying to learn more about web development in order to create intuitive and usable pieces of software.
-                    Plus, I just love to learn. That's how this website came about!
+                    {`I'm passionate about UX (User Experience) and I'm always trying to learn more about web development in order to create intuitive and usable pieces of software.
+                    Plus, I just love to learn. That's how this website came about!`}
                 </Typography>
                 <Typography>
-                    When I'm not writing code, I can be found reading, hanging out with my cat, or watching baseball.
+                    {`When I'm not writing code, I can be found reading, hanging out with my cat, or watching baseball.`}
                 </Typography>
                 <Typography>
-                    Want to talk tech? Feel free to get in touch!
+                    {`Want to talk tech? Feel free to get in touch!`}
                 </Typography>
             </Stack>
         </Stack>

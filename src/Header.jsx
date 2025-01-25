@@ -1,10 +1,12 @@
 import { useContext } from "react";
-import { AppBar, Button, IconButton, Stack, Toolbar } from "@mui/material";
+import { AppBar, Button, IconButton, Stack, Switch, ToggleButton, ToggleButtonGroup, Toolbar, useColorScheme } from "@mui/material";
 import HomeIcon from '@mui/icons-material/Home';
 import { AppContext } from "./AppContext";
+import { DarkMode, LightMode } from "@mui/icons-material";
 
 export default function Header() {
-    const {page, setPage} = useContext(AppContext);
+    const {colorScheme, setColorScheme, setPage} = useContext(AppContext);
+
 
     return (
         <AppBar position="static">
@@ -22,6 +24,20 @@ export default function Header() {
                     <Button size="large" color="inherit" onClick={() => setPage('projects')}>Projects</Button>
                     <Button size="large" color="inherit" onClick={() => setPage('about')}>About Me</Button>
                 </Stack>
+                <ToggleButtonGroup
+                    value={colorScheme}
+                    exclusive
+                    color="secondary"
+                    onChange={(e, newValue) => {setColorScheme(newValue) }}
+                    //sx={{color: 'primary.contrastText'}}
+                >
+                    <ToggleButton value="light">
+                        <LightMode />
+                    </ToggleButton>
+                    <ToggleButton value="dark">
+                        <DarkMode />
+                    </ToggleButton>
+                </ToggleButtonGroup>
             </Toolbar>
         </AppBar>
     )

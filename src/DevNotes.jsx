@@ -48,7 +48,7 @@ export default function DevNotes({open, close}) {
                 {currentPageInfo.technologies.map((tech) => {
                     return (
                         <Card
-                            key={tech}
+                            key={tech.name}
                             sx={{textAlign: 'center'}}
                         >
                             <CardActionArea onClick={() => window.open(tech.website, '_blank').focus()}>

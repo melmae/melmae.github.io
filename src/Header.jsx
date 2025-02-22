@@ -14,7 +14,7 @@ export default function Header() {
                 <IconButton color="inherit" onClick={() => setPage('home')}><HomeIcon /></IconButton>
                 <Stack 
                     direction="row" 
-                    spacing={3}
+                    spacing={{sx: 2, md: 3}}
                     sx={{
                         width: '100%',
                         justifyContent: "center",

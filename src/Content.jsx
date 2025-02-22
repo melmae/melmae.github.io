@@ -4,7 +4,6 @@ import { Box, SpeedDial, SpeedDialAction } from "@mui/material";
 import { AppContext } from "./AppContext";
 import Projects from "./Projects/Projects";
 import { Build, Chat, Code, InfoOutlined } from "@mui/icons-material";
-import { styled, useTheme } from '@mui/material/styles';
 import Explanation from "./Home/Explanation";
 import FeedbackForm from "./FeedbackForm";
 
@@ -25,9 +24,12 @@ export default function Content() {
     }
 
     return (
-        <Box
-            sx={{
-                width: `calc(100%${devToolsState.tech ? " - 300px" : ""}${devToolsState.source ? " - 300px" : ""})`
+        <div
+            id="content"
+            style={{
+                width: `calc(100%${devToolsState.tech ? " - 300px" : ""}${devToolsState.source ? " - 300px" : ""})px`,
+                // height: `calc(100% - ${document.querySelector("header").offsetHeight}px)`,
+                margin: '24px'
             }}
         >
             {page === "home" && <Home />}
@@ -36,7 +38,7 @@ export default function Content() {
             {page === "about" && <About />}
             <SpeedDial
                 ariaLabel="Website tech insight"
-                sx={{ position: 'absolute', bottom: 32, right: calcPosition() }}
+                sx={{ position: 'fixed', bottom: 32, right: calcPosition() }}
                 icon={<InfoOutlined />}
             >
                 {featureFlags.sourceCode && <SpeedDialAction
@@ -59,6 +61,6 @@ export default function Content() {
             </SpeedDial>
             <DevNotes open={devToolsState.tech} close={() => setDevToolsState({...devToolsState, tech: false})} />
             <FeedbackForm open={devToolsState.feedback} close={() => setDevToolsState({...devToolsState, feedback: false})} />
-        </Box>
+        </div>
     )
 }
